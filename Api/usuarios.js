@@ -11,7 +11,7 @@ export async function usuarios(app) {
     return reply.status(201).send();
   });
 
-  app.get('/usuarios', async (req, reply) => {
+  app.get('/usuarios', { onRequest: [app.authenticate] }, async (req, reply) => {
     const search = req.query.search;
 
     const usuarios = await app.db_usuarios.list(search);
@@ -19,7 +19,7 @@ export async function usuarios(app) {
     return usuarios;
   });
 
-  app.put('/usuarios/:id', async (req, reply) => {
+  app.put('/usuarios/:id', { onRequest: [app.authenticate] }, async (req, reply) => {
     const usuarioid = req.params.id;
 
     await app.db_usuarios.update(usuarioid, {
@@ -30,7 +30,7 @@ export async function usuarios(app) {
 
   });
 
-  app.delete('/usuarios/:id', async (req, reply) => {
+  app.delete('/usuarios/:id', { onRequest: [app.authenticate] }, async (req, reply) => {
     const usuarioid = req.params.id;
 
     await app.db_usuarios.delete(usuarioid);
