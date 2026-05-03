@@ -41,7 +41,7 @@ server.post('/login', async (request, reply) => {
 
 server.register(usuarios);
 
-const port = process.env.PORT || 3333;
+const port = process.env.PORT || 3000;
 
 server.listen({ 
     port: Number(port), 
