@@ -1,4 +1,4 @@
-POST http://3.144.136.94:3000/usuarios
+POST http://localhost:3333/usuarios
 Content-Type: application/json
 
 {
@@ -9,19 +9,19 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3333/usuario
+GET http://localhost:3333/usuarios
 
 ###
 
-PUT http://localhost:3333/item/b5b9526b-a62a-4f78-bb06-677fa5546807
+PUT http://localhost:3333/usuarios/1
 Content-Type: application/json
 
 {
-    "nome": "Teste do Teste",
+    "nome": "matador de onça",
     "email": "Modelo Teste",
     "senha": "2025-01-02"
 }
 
 ###
 
-DELETE http://localhost:3333/item/4eec4acf-81a0-45b9-a192-8e962de41f85
+DELETE http://localhost:3333/usuarios/1

@@ -1,19 +1,12 @@
+import postgres from 'postgres';
 import 'dotenv/config';
-import mysql from 'mysql2/promise';
 
-const pool = mysql.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0
+const { DB_HOST, DB_NAME, DB_USER, DB_PASS } = process.env;
+
+export const sql = postgres({
+  host: DB_HOST,
+  database: DB_NAME,
+  username: DB_USER,
+  password: DB_PASS,
+  port: 5432
 });
-
-export const sql = async (query, params) => {
-  const [rows] = await pool.execute(query, params);
-  return rows;
-};
-
-export default pool;
