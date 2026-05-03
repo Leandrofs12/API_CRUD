@@ -1,0 +1,27 @@
+POST http://3.144.136.94:3000/usuarios
+Content-Type: application/json
+
+{
+    "nome": "Produto novo 02",
+    "email": "Modelo Teste",
+    "senha": "2025-01-01"
+}
+
+###
+
+GET http://localhost:3333/usuario
+
+###
+
+PUT http://localhost:3333/item/b5b9526b-a62a-4f78-bb06-677fa5546807
+Content-Type: application/json
+
+{
+    "nome": "Teste do Teste",
+    "email": "Modelo Teste",
+    "senha": "2025-01-02"
+}
+
+###
+
+DELETE http://localhost:3333/item/4eec4acf-81a0-45b9-a192-8e962de41f85
